@@ -87,15 +87,17 @@ class Client {
 
     /**
      * @param string[] $users
+     * @param \DateTime $since
      * @return UpdatedUsersResponse
      * @throws ClientException
      */
-    public function getUpdatedUsers(array $users): UpdatedUsersResponse {
+    public function getUpdatedUsers(array $users, \DateTime $since): UpdatedUsersResponse {
         $this->logger->debug('getUpdatedUsers() started');
 
         try {
             $request = (new UpdatedUsersRequestBuilder())
                 ->addUsers($users)
+                ->since($since)
                 ->build();
 
             $response = $this->request($request, static::UPDATED_USERS_ENDPOINT);
