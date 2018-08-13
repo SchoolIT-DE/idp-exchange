@@ -6,12 +6,14 @@ use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Represents a request for a list of users.
+ * Requests information for specific users.
  */
 class UsersRequest {
     /**
+     * List of usernames for which the information is requested.
+     *
      * @Serializer\Type("array<string>")
-     * @Assert\Length(min="1")
+     * @Assert\Count(min="1")
      * @var string[]
      */
     public $users = [ ];
