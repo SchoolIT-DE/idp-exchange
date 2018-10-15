@@ -1,6 +1,7 @@
 {
     "type": "library",
     "name": "schoolit/idp-exchange",
+    "version": "1.0.0",
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
