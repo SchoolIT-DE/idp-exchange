@@ -11,8 +11,8 @@ use GuzzleHttp\Psr7\Response;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use SchoolIT\IdpExchange\Client;
-use SchoolIT\IdpExchange\Response\UserResponse;
 use SchoolIT\IdpExchange\Response\UpdatedUsersResponse;
+use SchoolIT\IdpExchange\Response\UserResponse;
 use SchoolIT\IdpExchange\Response\UsersResponse;
 
 class ClientTest extends TestCase {
@@ -116,7 +116,7 @@ JSON;
         $serializer = SerializerBuilder::create()->build();
 
         $client = new Client('https://example.tld/', '123456', $guzzle, $serializer);
-        $response = $client->getUpdatedUsers(['foo']);
+        $response = $client->getUpdatedUsers(['foo'], new \DateTime());
 
         $this->assertInstanceOf(UpdatedUsersResponse::class, $response);
     }
@@ -133,7 +133,7 @@ JSON;
         $serializer = SerializerBuilder::create()->build();
 
         $client = new Client('https://example.tld/', '123456', $guzzle, $serializer);
-        $client->getUpdatedUsers([]);
+        $client->getUpdatedUsers([], new \DateTime());
     }
 
     /**
@@ -148,7 +148,7 @@ JSON;
         $serializer = SerializerBuilder::create()->build();
 
         $client = new Client('https://example.tld/', '123456', $guzzle, $serializer);
-        $client->getUpdatedUsers([]);
+        $client->getUpdatedUsers([], new \DateTime());
     }
 
     /**
@@ -164,7 +164,7 @@ JSON;
         $serializer = SerializerBuilder::create()->build();
 
         $client = new Client('https://example.tld/', '123456', $guzzle, $serializer);
-        $client->getUpdatedUsers([]);
+        $client->getUpdatedUsers([], new \DateTime());
     }
 
     public function testSuccessGetUsers() {

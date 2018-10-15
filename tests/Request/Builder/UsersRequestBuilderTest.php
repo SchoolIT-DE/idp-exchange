@@ -12,9 +12,9 @@ class UsersRequestBuilderTest extends TestCase {
             ->addUser('bla')
             ->build();
 
-        $this->assertEquals(2, count($request->users));
-        $this->assertEquals('foo', $request->users[0]);
-        $this->assertEquals('bla', $request->users[1]);
+        $this->assertEquals(2, count($request->usernames));
+        $this->assertEquals('foo', $request->usernames[0]);
+        $this->assertEquals('bla', $request->usernames[1]);
     }
 
     public function testAddUsers() {
@@ -23,8 +23,8 @@ class UsersRequestBuilderTest extends TestCase {
             ->addUsers(['bla'])
             ->build();
 
-        $this->assertEquals(2, count($request->users));
-        $this->assertEquals('foo', $request->users[0]);
-        $this->assertEquals('bla', $request->users[1]);
+        $this->assertEquals(2, count($request->usernames));
+        $this->assertEquals('foo', $request->usernames[0]);
+        $this->assertEquals('bla', $request->usernames[1]);
     }
 }

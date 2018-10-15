@@ -15,7 +15,7 @@ class UpdatedUsersRequest {
      * @Serializer\Type("array<string>")
      * @Assert\Count(min="1")
      */
-    public $users = [ ];
+    public $usernames = [ ];
 
     /**
      * @Serializer\Type("DateTime")

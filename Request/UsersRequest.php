@@ -16,5 +16,5 @@ class UsersRequest {
      * @Assert\Count(min="1")
      * @var string[]
      */
-    public $users = [ ];
+    public $usernames = [ ];
 }

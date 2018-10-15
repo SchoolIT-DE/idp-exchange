@@ -39,21 +39,21 @@ JSON;
     public function testDeserializeUpdatedUsersRequest() {
         $json = <<<JSON
 {
-    "users": [ "user1", "user2" ]
+    "usernames": [ "user1", "user2" ]
 }
 JSON;
 
         $request = $this->deserialize($json, UpdatedUsersRequest::class);
 
         $this->assertInstanceOf(UpdatedUsersRequest::class, $request);
-        $this->assertEquals(['user1', 'user2'], $request->users);
+        $this->assertEquals(['user1', 'user2'], $request->usernames);
         $this->assertNull($request->since);
     }
 
     public function testDeserializeUpdatedUsersRequestWithSince() {
         $json = <<<JSON
 {
-    "users": [ "user1", "user2" ],
+    "usernames": [ "user1", "user2" ],
     "since": "2018-01-01T01:00:00+0100"
 }
 JSON;
@@ -61,7 +61,7 @@ JSON;
         $request = $this->deserialize($json, UpdatedUsersRequest::class);
 
         $this->assertInstanceOf(UpdatedUsersRequest::class, $request);
-        $this->assertEquals(['user1', 'user2'], $request->users);
+        $this->assertEquals(['user1', 'user2'], $request->usernames);
         $this->assertNotNull($request->since);
         $this->assertInstanceOf(\DateTime::class, $request->since);
         $this->assertEquals(new \DateTime('2018-01-01 01:00:00 +0100'), $request->since);
@@ -70,14 +70,14 @@ JSON;
     public function testDeserializeUsersRequest() {
         $json = <<<JSON
 {
-    "users": [ "user1", "user2" ]
+    "usernames": [ "user1", "user2" ]
 }
 JSON;
 
         $request = $this->deserialize($json, UsersRequest::class);
 
         $this->assertInstanceOf(UsersRequest::class, $request);
-        $this->assertEquals(['user1', 'user2'], $request->users);
+        $this->assertEquals(['user1', 'user2'], $request->usernames);
     }
 
     public function testDeserializeUserResponse() {

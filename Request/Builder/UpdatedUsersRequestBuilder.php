@@ -8,7 +8,7 @@ class UpdatedUsersRequestBuilder {
     /**
      * @var string[]
      */
-    private $users = [ ];
+    private $usernames = [ ];
 
     /**
      * @var \DateTime
@@ -20,7 +20,7 @@ class UpdatedUsersRequestBuilder {
      * @return $this
      */
     public function addUser(string $username): UpdatedUsersRequestBuilder {
-        $this->users[] = $username;
+        $this->usernames[] = $username;
         return $this;
     }
 
@@ -29,7 +29,7 @@ class UpdatedUsersRequestBuilder {
      * @return UpdatedUsersRequestBuilder
      */
     public function addUsers(array $users): UpdatedUsersRequestBuilder {
-        $this->users = array_merge($this->users, $users);
+        $this->usernames = array_merge($this->usernames, $users);
         return $this;
     }
 
@@ -47,7 +47,7 @@ class UpdatedUsersRequestBuilder {
      */
     public function build(): UpdatedUsersRequest {
         $request = new UpdatedUsersRequest();
-        $request->users = $this->users;
+        $request->usernames = $this->usernames;
         if($this->since !== null) {
             $request->since = clone $this->since;
         }

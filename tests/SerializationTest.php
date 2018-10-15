@@ -47,7 +47,7 @@ JSON;
         $json = $this->serialize($request);
         $expextedJson = <<<JSON
 {
-    "users": [ "foo", "bla" ],
+    "usernames": [ "foo", "bla" ],
     "since": null
 }
 JSON;
@@ -65,7 +65,7 @@ JSON;
         $json = $this->serialize($request);
         $expextedJson = <<<JSON
 {
-    "users": [ "foo", "bla" ],
+    "usernames": [ "foo", "bla" ],
     "since": "2018-01-01T01:00:00+0100"
 }
 JSON;
@@ -81,7 +81,7 @@ JSON;
         $json = $this->serialize($request);
         $expectedJson = <<<JSON
 {
-    "users": [ "foo", "bla" ]
+    "usernames": [ "foo", "bla" ]
 }
 JSON;
 

@@ -11,7 +11,7 @@ class UpdatedUsersRequestBuilderTest extends TestCase {
             ->addUser('username')
             ->build();
 
-        $this->assertContains('username', $request->users);
+        $this->assertContains('username', $request->usernames);
     }
 
     public function testAddUsers() {
@@ -19,9 +19,9 @@ class UpdatedUsersRequestBuilderTest extends TestCase {
             ->addUsers(['userOne', 'userTwo', 'userThree'])
             ->build();
 
-        $this->assertContains('userOne', $request->users);
-        $this->assertContains('userTwo', $request->users);
-        $this->assertContains('userThree', $request->users);
+        $this->assertContains('userOne', $request->usernames);
+        $this->assertContains('userTwo', $request->usernames);
+        $this->assertContains('userThree', $request->usernames);
     }
 
     public function testAddEmptyUsers() {
@@ -29,6 +29,6 @@ class UpdatedUsersRequestBuilderTest extends TestCase {
             ->addUsers([])
             ->build();
 
-        $this->assertEmpty($request->users);
+        $this->assertEmpty($request->usernames);
     }
 }

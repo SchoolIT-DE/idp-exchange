@@ -8,14 +8,14 @@ class UsersRequestBuilder {
     /**
      * @var string[]
      */
-    private $users = [ ];
+    private $usernames = [ ];
 
     /**
      * @param string $user
      * @return UsersRequestBuilder
      */
     public function addUser(string $user): UsersRequestBuilder {
-        $this->users[] = $user;
+        $this->usernames[] = $user;
         return $this;
     }
 
@@ -24,7 +24,7 @@ class UsersRequestBuilder {
      * @return UsersRequestBuilder
      */
     public function addUsers(array $users): UsersRequestBuilder {
-        $this->users = array_merge($this->users, $users);
+        $this->usernames = array_merge($this->usernames, $users);
         return $this;
     }
 
@@ -33,7 +33,7 @@ class UsersRequestBuilder {
      */
     public function build(): UsersRequest {
         $request = new UsersRequest();
-        $request->users = $this->users;
+        $request->usernames = $this->usernames;
 
         return $request;
     }
