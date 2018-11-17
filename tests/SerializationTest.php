@@ -93,6 +93,7 @@ JSON;
             ->setUsername('foo')
             ->addValueAttribute('attribute1', 'value1')
             ->addValuesAttribute('attribute2', [ 'value2', 'value3'])
+            ->addValueAttribute('attribute3', null)
             ->build();
 
         $json = $this->serialize($response);
@@ -109,6 +110,11 @@ JSON;
             "name": "attribute2",
             "type": "multiple",
             "values": [ "value2", "value3" ]
+        },
+        {
+            "name": "attribute3",
+            "type": "single",
+            "value": null
         }
     ]
 }

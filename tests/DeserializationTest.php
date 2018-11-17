@@ -94,6 +94,11 @@ JSON;
             "name": "attribute2",
             "type": "multiple",
             "values": [ "value2", "value3" ]
+        },
+        {
+            "name": "attribute3",
+            "type": "single",
+            "value": null
         }
     ]
 }
@@ -103,13 +108,15 @@ JSON;
 
         $this->assertInstanceOf(UserResponse::class, $response);
         $this->assertEquals('foo', $response->username);
-        $this->assertEquals(2, count($response->attributes));
+        $this->assertEquals(3, count($response->attributes));
         $this->assertInstanceOf(ValueAttribute::class, $response->attributes[0]);
         $this->assertEquals('attribute1', $response->attributes[0]->name);
         $this->assertEquals('value1', $response->attributes[0]->value);
         $this->assertInstanceOf(ValuesAttribute::class, $response->attributes[1]);
         $this->assertEquals('attribute2', $response->attributes[1]->name);
         $this->assertEquals(['value2', 'value3'], $response->attributes[1]->values);
+        $this->assertEquals('attribute3', $response->attributes[2]->name);
+        $this->assertNull($response->attributes[2]->value);
     }
 
     public function testDeserializeUsersResponse() {
