@@ -17,8 +17,7 @@ use SchoolIT\IdpExchange\Response\ValuesAttribute;
 
 class DeserializationTest extends TestCase {
     private function deserialize($json, $type) {
-        $context = (new DeserializationContext())
-            ->setSerializeNull(true);
+        $context = new DeserializationContext();
 
         $serializer = SerializerBuilder::create()->build();
         return $serializer->deserialize($json, $type, 'json', $context);
@@ -54,7 +53,7 @@ JSON;
         $json = <<<JSON
 {
     "usernames": [ "user1", "user2" ],
-    "since": "2018-01-01T01:00:00+0100"
+    "since": "2018-01-01T01:00:00+01:00"
 }
 JSON;
 
@@ -64,7 +63,7 @@ JSON;
         $this->assertEquals(['user1', 'user2'], $request->usernames);
         $this->assertNotNull($request->since);
         $this->assertInstanceOf(\DateTime::class, $request->since);
-        $this->assertEquals(new \DateTime('2018-01-01 01:00:00 +0100'), $request->since);
+        $this->assertEquals(new \DateTime('2018-01-01 01:00:00 +01:00'), $request->since);
     }
 
     public function testDeserializeUsersRequest() {
@@ -154,7 +153,7 @@ JSON;
     "users": [ 
         {
             "username": "user1",
-            "updated": "2018-01-01T00:00:00+0100"
+            "updated": "2018-01-01T00:00:00+01:00"
         }
     ]
 }
@@ -166,6 +165,6 @@ JSON;
         $this->assertEquals(1, count($response->users));
         $this->assertInstanceOf(UserUpdateInformation::class, $response->users[0]);
         $this->assertEquals('user1', $response->users[0]->username);
-        $this->assertEquals(new \DateTime('2018-01-01 00:00:00 +0100'), $response->users[0]->updated);
+        $this->assertEquals(new \DateTime('2018-01-01 00:00:00 +01:00'), $response->users[0]->updated);
     }
 }

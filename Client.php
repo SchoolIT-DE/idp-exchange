@@ -74,8 +74,7 @@ class Client {
      * @return array|\JMS\Serializer\scalar|mixed|object
      */
     private function deserialize(string $json, string $type) {
-        $context = (new DeserializationContext())
-            ->setSerializeNull(true);
+        $context = new DeserializationContext();
 
         $object = $this->serializer->deserialize($json, $type, 'json', $context);
         return $object;
