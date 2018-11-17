@@ -59,14 +59,14 @@ JSON;
         $request = (new UpdatedUsersRequestBuilder())
             ->addUser('foo')
             ->addUser('bla')
-            ->since(new \DateTime('2018-01-01 01:00:00 +01:00'))
+            ->since(new \DateTime('2018-01-01 01:00:00 +0100'))
             ->build();
 
         $json = $this->serialize($request);
         $expextedJson = <<<JSON
 {
     "usernames": [ "foo", "bla" ],
-    "since": "2018-01-01T01:00:00+01:00"
+    "since": "2018-01-01T01:00:00+0100"
 }
 JSON;
 
@@ -172,8 +172,8 @@ JSON;
 
     public function testUpdatedUsersResponse() {
         $response = (new UpdatedUsersResponseBuilder())
-            ->addUser('user1', new \DateTime('2018-01-01 00:00:00 +01:00'))
-            ->addUser('user2', new \DateTime('2018-01-01 00:01:00 +01:00'))
+            ->addUser('user1', new \DateTime('2018-01-01 00:00:00 +0100'))
+            ->addUser('user2', new \DateTime('2018-01-01 00:01:00 +0100'))
             ->build();
 
         $json = $this->serialize($response);
@@ -182,11 +182,11 @@ JSON;
     "users": [
         {
             "username": "user1",
-            "updated": "2018-01-01T00:00:00+01:00"
+            "updated": "2018-01-01T00:00:00+0100"
         },
         {
             "username": "user2",
-            "updated": "2018-01-01T00:01:00+01:00"
+            "updated": "2018-01-01T00:01:00+0100"
         }   
     ]
 }
