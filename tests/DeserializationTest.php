@@ -17,11 +17,8 @@ use SchoolIT\IdpExchange\Response\ValuesAttribute;
 
 class DeserializationTest extends TestCase {
     private function deserialize($json, $type) {
-        $context = (new DeserializationContext())
-            ->setSerializeNull(true);
-
         $serializer = SerializerBuilder::create()->build();
-        return $serializer->deserialize($json, $type, 'json', $context);
+        return $serializer->deserialize($json, $type, 'json');
     }
 
     public function testDeserializeUserRequest() {
@@ -54,7 +51,7 @@ JSON;
         $json = <<<JSON
 {
     "usernames": [ "user1", "user2" ],
-    "since": "2018-01-01T01:00:00+0100"
+    "since": "2018-01-01T01:00:00+01:00"
 }
 JSON;
 
@@ -64,7 +61,7 @@ JSON;
         $this->assertEquals(['user1', 'user2'], $request->usernames);
         $this->assertNotNull($request->since);
         $this->assertInstanceOf(\DateTime::class, $request->since);
-        $this->assertEquals(new \DateTime('2018-01-01 01:00:00 +0100'), $request->since);
+        $this->assertEquals(new \DateTime('2018-01-01 01:00:00 +01:00'), $request->since);
     }
 
     public function testDeserializeUsersRequest() {

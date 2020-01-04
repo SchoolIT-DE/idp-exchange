@@ -6,7 +6,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializationContext;
-use JMS\Serializer\Serializer;
+use JMS\Serializer\SerializerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SchoolIT\IdpExchange\Request\Builder\UpdatedUsersRequestBuilder;
@@ -28,7 +28,7 @@ class Client {
     private $serializer;
     private $logger;
 
-    public function __construct(string $endpoint, string $token, GuzzleClient $guzzle, Serializer $serializer, LoggerInterface $logger = null) {
+    public function __construct(string $endpoint, string $token, GuzzleClient $guzzle, SerializerInterface $serializer, LoggerInterface $logger = null) {
         $this->endpoint = $endpoint;
         $this->token = $token;
         $this->guzzle = $guzzle;
@@ -74,10 +74,7 @@ class Client {
      * @return array|\JMS\Serializer\scalar|mixed|object
      */
     private function deserialize(string $json, string $type) {
-        $context = (new DeserializationContext())
-            ->setSerializeNull(true);
-
-        $object = $this->serializer->deserialize($json, $type, 'json', $context);
+        $object = $this->serializer->deserialize($json, $type, 'json');
         return $object;
     }
 
