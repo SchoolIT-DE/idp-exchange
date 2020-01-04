@@ -11,7 +11,7 @@ build:
                 override:
                     - php-scrutinizer-run
                     -
-                        command: phpcs-run
+                        command: phpcs-run ./
                         use_website_config: true
         tests: true
 filter:
