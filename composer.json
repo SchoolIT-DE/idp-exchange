@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "symfony/validator": "^4.1",
         "psr/log": "^1.0",
-        "schoolit/idp-exchange-models": "^1.0",
+        "schoolit/idp-exchange-models": "dev-master",
         "jms/serializer": "^3.4"
     },
     "autoload": {
