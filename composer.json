@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SchulIT\IdpExchange\\": "."
+            "SchulIT\\IdpExchange\\": "."
         }
     },
     "require-dev": {
