@@ -1,6 +1,6 @@
 <?php
 
-namespace SchulITIdpExchange;
+namespace SchulIT\IdpExchange;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\GuzzleException;
@@ -9,12 +9,12 @@ use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use SchulITIdpExchange\Request\Builder\UpdatedUsersRequestBuilder;
-use SchulITIdpExchange\Request\Builder\UserRequestBuilder;
-use SchulITIdpExchange\Request\Builder\UsersRequestBuilder;
-use SchulITIdpExchange\Response\UpdatedUsersResponse;
-use SchulITIdpExchange\Response\UserResponse;
-use SchulITIdpExchange\Response\UsersResponse;
+use SchulIT\IdpExchange\Request\Builder\UpdatedUsersRequestBuilder;
+use SchulIT\IdpExchange\Request\Builder\UserRequestBuilder;
+use SchulIT\IdpExchange\Request\Builder\UsersRequestBuilder;
+use SchulIT\IdpExchange\Response\UpdatedUsersResponse;
+use SchulIT\IdpExchange\Response\UserResponse;
+use SchulIT\IdpExchange\Response\UsersResponse;
 
 class Client {
     private const TOKEN_HEADER = 'X-Token';

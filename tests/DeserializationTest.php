@@ -1,19 +1,19 @@
 <?php
 
-namespace SchulITIdpExchange\Tests;
+namespace SchulIT\IdpExchange\Tests;
 
 use JMS\Serializer\DeserializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SchulITIdpExchange\Request\UpdatedUsersRequest;
-use SchulITIdpExchange\Request\UserRequest;
-use SchulITIdpExchange\Request\UsersRequest;
-use SchulITIdpExchange\Response\UpdatedUsersResponse;
-use SchulITIdpExchange\Response\UserResponse;
-use SchulITIdpExchange\Response\UsersResponse;
-use SchulITIdpExchange\Response\UserUpdateInformation;
-use SchulITIdpExchange\Response\ValueAttribute;
-use SchulITIdpExchange\Response\ValuesAttribute;
+use SchulIT\IdpExchange\Request\UpdatedUsersRequest;
+use SchulIT\IdpExchange\Request\UserRequest;
+use SchulIT\IdpExchange\Request\UsersRequest;
+use SchulIT\IdpExchange\Response\UpdatedUsersResponse;
+use SchulIT\IdpExchange\Response\UserResponse;
+use SchulIT\IdpExchange\Response\UsersResponse;
+use SchulIT\IdpExchange\Response\UserUpdateInformation;
+use SchulIT\IdpExchange\Response\ValueAttribute;
+use SchulIT\IdpExchange\Response\ValuesAttribute;
 
 class DeserializationTest extends TestCase {
     private function deserialize($json, $type) {
