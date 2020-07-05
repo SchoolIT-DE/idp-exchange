@@ -1,5 +1,5 @@
 <?php
 
-namespace SchoolIT\IdpExchange;
+namespace SchulITIdpExchange;
 
 class ClientException extends \Exception { }

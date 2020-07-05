@@ -1,18 +1,18 @@
 <?php
 
-namespace SchoolIT\IdpExchange\Tests;
+namespace SchulITIdpExchange\Tests;
 
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SchoolIT\IdpExchange\Request\Builder\UpdatedUsersRequestBuilder;
-use SchoolIT\IdpExchange\Request\Builder\UserRequestBuilder;
-use SchoolIT\IdpExchange\Request\Builder\UsersRequestBuilder;
-use SchoolIT\IdpExchange\Request\UsersRequest;
-use SchoolIT\IdpExchange\Response\Builder\UserResponseBuilder;
-use SchoolIT\IdpExchange\Response\Builder\UpdatedUsersResponseBuilder;
-use SchoolIT\IdpExchange\Response\Builder\UsersResponseBuilder;
-use SchoolIT\IdpExchange\Response\UsersResponse;
+use SchulITIdpExchange\Request\Builder\UpdatedUsersRequestBuilder;
+use SchulITIdpExchange\Request\Builder\UserRequestBuilder;
+use SchulITIdpExchange\Request\Builder\UsersRequestBuilder;
+use SchulITIdpExchange\Request\UsersRequest;
+use SchulITIdpExchange\Response\Builder\UserResponseBuilder;
+use SchulITIdpExchange\Response\Builder\UpdatedUsersResponseBuilder;
+use SchulITIdpExchange\Response\Builder\UsersResponseBuilder;
+use SchulITIdpExchange\Response\UsersResponse;
 
 class SerializationTest extends TestCase {
     private function serialize($data) {
