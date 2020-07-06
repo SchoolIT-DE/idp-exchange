@@ -1,6 +1,6 @@
 <?php
 
-namespace SchulITIdpExchange\Tests;
+namespace SchulIT\IdpExchange\Tests;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\RequestException;
@@ -10,10 +10,10 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
-use SchulITIdpExchange\Client;
-use SchulITIdpExchange\Response\UpdatedUsersResponse;
-use SchulITIdpExchange\Response\UserResponse;
-use SchulITIdpExchange\Response\UsersResponse;
+use SchulIT\IdpExchange\Client;
+use SchulIT\IdpExchange\Response\UpdatedUsersResponse;
+use SchulIT\IdpExchange\Response\UserResponse;
+use SchulIT\IdpExchange\Response\UsersResponse;
 
 class ClientTest extends TestCase {
 
@@ -51,7 +51,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUserError() {
         $mock = new MockHandler([
@@ -66,7 +66,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUserServerError() {
         $mock = new MockHandler([
@@ -81,7 +81,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      * @expectedExceptionMessage Request failed with response code 204
      */
     public function testGetUserEmptyResponse() {
@@ -122,7 +122,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUpdatedUsersError() {
         $mock = new MockHandler([
@@ -137,7 +137,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUpdatedUsersServerError() {
         $mock = new MockHandler([
@@ -152,7 +152,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      * @expectedExceptionMessage Request failed with response code 204
      */
     public function testGetUpdatedUsersEmptyResponse() {
@@ -209,7 +209,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUsersError() {
         $mock = new MockHandler([
@@ -224,7 +224,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      */
     public function testGetUsersServerError() {
         $mock = new MockHandler([
@@ -239,7 +239,7 @@ JSON;
     }
 
     /**
-     * @expectedException  \SchulITIdpExchange\ClientException
+     * @expectedException  \SchulIT\IdpExchange\ClientException
      * @expectedExceptionMessage Request failed with response code 204
      */
     public function testGetUsersEmptyResponse() {
